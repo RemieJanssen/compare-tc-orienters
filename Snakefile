@@ -23,7 +23,6 @@ rule all:
         ["results/aggregated.csv", "results/aggregated_properties.csv"]
 
 
-
 rule aggregate:
     resources:
         runtime_min=60,
@@ -31,7 +30,7 @@ rule aggregate:
     threads:
         1
     input:
-        expand("results_raw/{path}_{algo}",
+        expand("results_raw/{path}__{algo}",
                path=paths, algo=algos)
     output:
         "results/aggregated.csv"
@@ -47,7 +46,7 @@ rule experiment:
     input:
         "data/{path}.csv"
     output:
-        "results_raw/{path}_{algo}"
+        "results_raw/{path}__{algo}"
     shell:
         "python code/experiment.py -f {input} -o {output} -a {wildcards.algo}"
 
