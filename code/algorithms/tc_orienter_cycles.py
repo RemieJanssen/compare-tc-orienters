@@ -38,8 +38,6 @@ def tree_child_orient(G):
   # Array for storing minimal cycles
   min_cycle = nx.minimum_cycle_basis(G)
 
-  # Array to store one selection of vertices from each minimal cycle
-  r_set = list(itertools.product(*min_cycle))
 
   G_temp = nx.Graph()
   # N is an undirected graph, N2 is a directed graph
@@ -47,10 +45,10 @@ def tree_child_orient(G):
   N = nx.Graph()
 
   # Pick one vertex within each minimal cycle and try all cases.
-  for i in range(len(r_set)):
+  for r_set in itertools.product(*min_cycle):
 
     indeg = [1] * (v_num+1)
-    for j in r_set[i]:
+    for j in r_set:
       indeg[j] = 2
     indeg[v_num] = -1
 
