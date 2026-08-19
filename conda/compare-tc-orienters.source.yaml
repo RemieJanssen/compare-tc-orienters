@@ -1,0 +1,14 @@
+name: compare-tc-orienters
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - pip
+  - python
+  - snakemake<8
+  - pip:
+    - phyloroot==1.0.0
+    - numpy
+    - matplotlib
+    - networkx
+    - scipy
