@@ -4,10 +4,10 @@ import csv
 import time
 import argparse
 
-from code.algorithms.phyloroot import phyloroot_bruteforce, phyloroot_fpt, phyloroot_fpt_cycle_basis_choose, phyloroot_fpt_cycle_basis_combinations, phyloroot_fpt_cycle_basis_product
-from code.algorithms.tc_orientater_bruteforce import tree_child_orient_huber_bruteforce
-from code.algorithms.tc_orienter_heuristic import tree_child_orient_heuristic
-from code.algorithms.tc_orienter_cycles import tree_child_orient
+from algorithms.phyloroot import phyloroot_bruteforce, phyloroot_fpt, phyloroot_fpt_cycle_basis_choose, phyloroot_fpt_cycle_basis_combinations, phyloroot_fpt_cycle_basis_product
+from algorithms.tc_orientater_bruteforce import tree_child_orient_huber_bruteforce
+from algorithms.tc_orienter_heuristic import tree_child_orient_heuristic
+from algorithms.tc_orienter_cycles import tree_child_orient
 
 def start():
     global start_time
