@@ -1,22 +1,28 @@
-directories, files = glob_wildcards("data/{dir}/{file}.csv")
-# directories, files = glob_wildcards("data/leaf_n10_experiment1/{dir}/{file}.csv")
-# directories, files = glob_wildcards("data/leaf_n10_experiment1/leaf_n10_reticulation_r2/{dir}/{file}.csv")
-paths = [d+"/"+f for d,f in zip(directories, files)]
+# directories, files = glob_wildcards("data/{dir}/{file}.csv")
+# dir_prefix = ""
+
+directories, files = glob_wildcards("data/leaf_n10_experiment1/{dir}/{file}.csv")
+dir_prefix = "leaf_n10_experiment1/"
+
+
+paths = [dir_prefix+d+"/"+f for d,f in zip(directories, files)]
 
 algos = [
     "PR_BF",
     "PR_FPT",
-    "PR_FPT_CB_CHOOSE",
-    "PR_FPT_CB_PROD",
-    "PR_FPT_CB_COMB",
+    # "PR_FPT_CB_CHOOSE",
+    # "PR_FPT_CB_PROD",
+    # "PR_FPT_CB_COMB",
     "TCO_H",
-    "TCO_BF",
+    # "TCO_BF",
+    "TCO_BF_O",
+    "TCO_BF_F",
     "TCO_CB",
 ]
 
 # can be at most 2 weeks for LSF
 # set low to test the snakemake run
-experiment_runtime_limit_min = 30
+experiment_runtime_limit_min = 10000
 
 rule all:
     input:

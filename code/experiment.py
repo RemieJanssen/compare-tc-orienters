@@ -5,7 +5,9 @@ import time
 import argparse
 
 from algorithms.phyloroot import phyloroot_bruteforce, phyloroot_fpt, phyloroot_fpt_cycle_basis_choose, phyloroot_fpt_cycle_basis_combinations, phyloroot_fpt_cycle_basis_product
-from algorithms.tc_orientater_bruteforce import tree_child_orient_huber_bruteforce
+from code.algorithms.tc_orienter_bruteforce_combinations import tree_child_orient_huber_bruteforce
+from code.algorithms.tc_orienter_bruteforce_fixed import tree_child_orient_huber_bruteforce as tree_child_orient_huber_bruteforce_fixed
+from code.algorithms.tc_orienter_bruteforce_original import tree_child_orient_huber_bruteforce as tree_child_orient_huber_bruteforce_original
 from algorithms.tc_orienter_heuristic import tree_child_orient_heuristic
 from algorithms.tc_orienter_cycles import tree_child_orient
 
@@ -65,7 +67,9 @@ def cmd_parser():
             "PR_FPT_CB_PROD (Phyloroot FPT with cyclebase: product), "
             "PR_FPT_CB_COMB (Phyloroot FPT with cyclebase: combinations), "
             "TCO_H (Tree-child orienter Heuristic), "
-            "TCO_BF (Tree-child orienter Bruteforce), "
+            "TCO_BF (Tree-child orienter Bruteforce Combinations), "
+            "TCO_BF_O (Tree-child orienter Bruteforce Original), "
+            "TCO_BF_F (Tree-child orienter Bruteforce Fixed), "
             "TCO_CB (Tree-child orienter FPT Cycle base), "
         )
     )
@@ -82,6 +86,8 @@ if __name__ == "__main__":
         "PR_FPT_CB_COMB": phyloroot_fpt_cycle_basis_combinations,
         "TCO_H": tree_child_orient_heuristic,
         "TCO_BF": tree_child_orient_huber_bruteforce,
+        "TCO_BF_F": tree_child_orient_huber_bruteforce_fixed,
+        "TCO_BF_O": tree_child_orient_huber_bruteforce_original,
         "TCO_CB": tree_child_orient,
     }
     elapsed_time, orientable = experiment(cmd_args.file, algo_dict[cmd_args.algorithm])
