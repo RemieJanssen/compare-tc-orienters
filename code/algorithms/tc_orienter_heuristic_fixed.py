@@ -37,6 +37,8 @@ def find_max_distance_set(G):
 
     internal_nodes = [v for v in G.nodes if G.degree(v)>1]
     distances = dict()
+    for u in internal_nodes:
+       distances[(u,u)] = 0
     for u, v in itertools.combinations(internal_nodes):
         distance = nx.shortest_path_length(G, u, v)
         distances[(u,v)] = distance
