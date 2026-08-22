@@ -14,6 +14,7 @@ algos = [
     # "PR_FPT_CB_PROD",
     # "PR_FPT_CB_COMB",
     "TCO_H",
+    "TCO_H_F",
     # "TCO_BF",
     "TCO_BF_O",
     "TCO_BF_F",
