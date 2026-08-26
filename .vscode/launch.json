@@ -13,7 +13,7 @@
             "console": "integratedTerminal",
             "args": [
                 "-f", "sample-input.csv",
-                "-a", "Hyb"
+                "-a", "TCO_H_F"
             ]
         }
     ]

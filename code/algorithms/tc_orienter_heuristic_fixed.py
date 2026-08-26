@@ -35,14 +35,7 @@ def find_max_distance_set(G):
     # Array for storing minimal cycles
     min_cycle = nx.minimum_cycle_basis(G)
 
-    internal_nodes = [v for v in G.nodes if G.degree(v)>1]
-    distances = dict()
-    for u in internal_nodes:
-       distances[(u,u)] = 0
-    for u, v in itertools.combinations(internal_nodes):
-        distance = nx.shortest_path_length(G, u, v)
-        distances[(u,v)] = distance
-        distances[(v,u)] = distance
+    distances = dict(nx.all_pairs_shortest_path_length(G))
 
     max_distance = float('-inf')
     max_distance_sets = []
@@ -50,7 +43,7 @@ def find_max_distance_set(G):
     for r in itertools.product(*min_cycle):
         sum_distance = 0
         for u, v in itertools.combinations(r, 2):
-            distance = distances[(u,v)]
+            distance = distances[u][v]
             if distance <= 1:
                 # reticulations are next to each other or duplicates
                 # so this cannot be tree-child
