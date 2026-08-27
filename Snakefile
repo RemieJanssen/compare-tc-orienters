@@ -4,21 +4,25 @@
 directories, files = glob_wildcards("data/leaf_n10_experiment1/{dir}/{file}.csv")
 dir_prefix = "leaf_n10_experiment1/"
 
+# directories, files = glob_wildcards("data/leaf_n10_experiment2/{dir}/{file}.csv")
+# dir_prefix = "leaf_n10_experiment2/"
+
 
 paths = [dir_prefix+d+"/"+f for d,f in zip(directories, files)]
 
 algos = [
-    "PR_BF",
-    "PR_FPT",
+    # "PR_BF",
+    # "PR_FPT",
     # "PR_FPT_CB_CHOOSE",
     # "PR_FPT_CB_PROD",
     # "PR_FPT_CB_COMB",
-    "TCO_H",
-    "TCO_H_F",
+    # "TCO_H",
+    # "TCO_H_F",
+    "TCO_H_FR",
     # "TCO_BF",
-    "TCO_BF_O",
-    "TCO_BF_F",
-    "TCO_CB",
+    # "TCO_BF_O",
+    # "TCO_BF_F",
+    # "TCO_CB",
 ]
 
 # can be at most 2 weeks for LSF
